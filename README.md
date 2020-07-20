@@ -1,5 +1,7 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+# Learning how to use react
+This project is based on a YouTube Free Course
+Instructor - Colt Steele
+YouTube Link - https://www.youtube.com/watch?v=9U3IhLAnSxM
 ## Available Scripts
 
 In the project directory, you can run:
