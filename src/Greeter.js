@@ -8,7 +8,7 @@ function Greeter({name, excitement = 1, age = "18"}){
         <>
             <h1>Hi there, {name}{"!".repeat(excitement)}</h1>
             <p>You are {age} years old</p>
-            <button onClick={greet()}>Click Me</button>
+            <button onClick={greet}>Click Me</button>
         </>
     )
 }
