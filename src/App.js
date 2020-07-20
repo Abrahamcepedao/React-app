@@ -2,7 +2,9 @@ import React from 'react';
 import NavBar from './NavBar';
 import Greeter from './Greeter';
 import Counter from './Counter';
+import TooglerMood from './TooglerMood';
 import './App.css';
+import './Counter.css'
 
 function App() {
   return (
@@ -11,7 +13,8 @@ function App() {
       <h1>Hello World - React!</h1>
       <Greeter name="Karen" age="19" excitement={4}/>
       <Greeter name="Abraham" age="20" excitement={2}/>
-      <Counter />
+      <Counter step={4} />
+      <TooglerMood/>
     </div>
   );  
 }

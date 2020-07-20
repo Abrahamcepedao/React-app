@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 
-function Counter(){
+function Counter({step = 1}){
     const  [count, setCount] =  useState(0);
-    const [isHappy, setIsHappy] = useState(true);
-    const changeMood = () =>  setIsHappy(!isHappy);
     return (  
-        <div>
+        <div className="Counter">
             <h2>{count}</h2>
-            <button onClick={() => setCount(count + 1)}>+1</button>
-            <h3>{isHappy ? ":)" : ":("}</h3>
-            <button onClick={changeMood}>Change mood</button>
+            <button onClick={() => setCount(count + step)}>+{step}</button>
         </div>
     )
 }
