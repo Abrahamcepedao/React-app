@@ -1,6 +1,10 @@
 import React from 'react';
+import './CartItem.css'
 
-function CartItem({id, name, price, qty}){
+function CartItem({id, name, price, qty, updateQty}){
+    const addOne = () => updateQty(id, qty + 1);
+    const subsOne =  () => updateQty(id, qty - 1);
+    
     return (
         <div className="CartItem">
             <div>
@@ -10,9 +14,9 @@ function CartItem({id, name, price, qty}){
                 ${price}
             </div>
             <div>
-                <button>-</button>
+                <button onClick={subsOne} disabled={qty <= 1}>-</button>
                 {qty}
-                <button>+</button>
+                <button onClick={addOne}>+</button>
             </div>
             <div>
                 Total: ${qty*price}

@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CartItem from './CartItem';
+import './Cart.css'
 
 function Cart({ initialItems }){
-    const [items, setItems] = useState(initialItems);
+    const initialState = JSON.parse(window.localStorage.getItem('items'));
+    const [items, setItems] = useState(initialState || initialItems);
+
+    useEffect(() => {
+        window.localStorage.setItem('items', JSON.stringify(items));
+    }, [items])
+
     const updateQty = (id, newQty) => {
         const newItems = items.map(item => {
             if(item.id === id){
@@ -18,13 +25,13 @@ function Cart({ initialItems }){
 
     return (
         <div className="Cart">
-            <h1>Shopping cart</h1>
+            <h1 className="Cart-title">Shopping cart</h1>
             <div className="Cart-items">
                 {items.map(item => (
-                    <CartItem key={item.id} {...item}/>
+                    <CartItem key={item.id} updateQty={updateQty} {...item}/>
                 ))}
             </div>
-            <h3>Grand total: ${grandTotal}</h3>
+            <h2 className="Cart-total">Grand total: ${grandTotal}</h2>
         </div>
     )
 }
